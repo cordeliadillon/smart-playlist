@@ -1,23 +1,23 @@
 smart-playlist
 ==============
-
 The best playlist you ever did see!
+
+Setup (OSX)
+---------------------------
+1. Install [homebrew](http://brew.sh/).
+2. Download and install [node.js](http://nodejs.org/download/) or just `brew install node`
+3. Make `brew doctor` happy if it has any serious problems with your environment. I had a lot of warnings and it was fine, though.
+4. Do `brew install libspotify`
+5. Clone this repo (if you haven't already)!
+6. In project root, do `npm install`
+7. Get your spotify developer key (see below).
 
 Installing Chrome Extension
 ---------------------------
-1. Clone this repo!
-2. In Chrome, go to `chrome://extensions`.
-3. Make sure Developer Mode checkbox in top right is checked.
-4. Click "Load unpacked extension..."
-5. Navigate to and select `smart-playlist/chrome-extension`.
-
-Installing node-spotify (OSX)
------------------------------
-1. Install [node.js](http://nodejs.org/download/).
-2. Install [homebrew](http://brew.sh/).
-3. Make homebrew happy (do `brew doctor`) if it has any serious problems with your environment. I had a lot of warnings and it was fine, though.
-4. Do `brew install libspotify`
-5. In project root, do `npm install`
+1. In Chrome, go to `chrome://extensions`.
+2. Make sure Developer Mode checkbox in top right is checked.
+3. Click "Load unpacked extension..."
+4. Navigate to and select `smart-playlist/chrome-extension`.
 
 Spotify Developer Key
 ---------------------
