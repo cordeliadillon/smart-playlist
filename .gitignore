@@ -1,2 +1,4 @@
 # Master .gitignore for the WHOOOOOLE repo
 
+# PHPStorm .idea directories
+.idea
