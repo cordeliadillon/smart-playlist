@@ -15,5 +15,5 @@ node-spotify install steps (OSX)
 Spotify Developer Key
 ---------------------
 1. Go to the Spotify [Application Keys](https://devaccount.spotify.com/my-account/keys/) page and get yours (register if necessary).
-2. Put the key in provider_modules/spotify/
+2. Put the key in `provider_modules/spotify/`
  
