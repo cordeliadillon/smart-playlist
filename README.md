@@ -6,7 +6,7 @@ The best playlist you ever did see!
 Installing Chrome Extension
 ---------------------------
 1. Clone this repo!
-2. In Chrome, go to chrome://extensions(chrome://extensions).
+2. In Chrome, go to `chrome://extensions`.
 3. Make sure Developer Mode checkbox in top right is checked.
 4. Click "Load unpacked extension..."
 5. Navigate to and select `smart-playlist/chrome-extension`.
