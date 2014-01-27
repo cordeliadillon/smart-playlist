@@ -1,4 +1,7 @@
 # Master .gitignore for the WHOOOOOLE repo
 
+# node.js locally built nodes
+node_modules
+
 # PHPStorm .idea directories
 .idea
