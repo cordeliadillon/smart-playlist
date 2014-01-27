@@ -3,7 +3,8 @@
   "description": "A chrome extension for playing songs and making playlists across a variety of audio platforms",
   "author": "Chris Davidson <c.samual.davidson@gmail.com>",
   "dependencies": {
-    "node-spotify" : "0.x.x"
+    "requirejs"         : "x.x.x",
+    "node-spotify"      : "0.x.x"
   },
   "devDependencies": {
   },
@@ -13,4 +14,3 @@
   , "url" : "https://github.com/cordeliadillon/smart-playlist.git"
   }
 }
-
