@@ -1,12 +1,38 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var sc_client_id = ""; // TODO: FILL IN YOUR OWN DAMN CLIENT_ID
-  var track = "http://soundcloud.com/kchqtt/ki-choquette-sunbather"; // change this to whatever you want
-  var resolveURL = "http://api.soundcloud.com/resolve.json?url=" + track + "&client_id=" + sc_id;
+var app = angular.module('coolApp', []);
 
-  SC.initialize({ client_id: c_id });
+app.controller('SmartPlaylistController',  function($scope){
+  $scope.searchResults = [];
+  $scope.query = "";
+  $scope.sc_id = "##SOUNDCLOUD_CLIENT_ID##";
+  $scope.selectedTrack = null;
+  $scope.playlist = [];
 
-  $.get(resolveURL, function (track) {
-    $("#myAudio").attr("src", track.stream_url+"?client_id=" + sc_id);
-  });
+  SC.initialize({ client_id: $scope.sc_id });
 
+  $scope.submitQuery = function() {
+    $.get('https://api.soundcloud.com/tracks.json?client_id=' + $scope.sc_id, { q: $scope.query, bpm: { from: 120 } },
+      function(tracks) {
+        $scope.searchResults = tracks;
+        $scope.$apply();
+      }
+    );
+  };
+
+  $scope.addToPlaylist = function(track) {
+    $scope.playlist.push(track);
+  }
+
+  $scope.removeFromPlaylist = function(track) {
+    $scope.playlist.splice($scope.playlist.indexOf(track),1);
+  }
+
+  $scope.selectTrack = function(track) {
+    $scope.selectedTrack = track;
+    $scope.updateAudio();
+  };
+
+  $scope.updateAudio = function() {
+    $("#scAudio").attr("src", $scope.selectedTrack.stream_url+"?client_id=" + $scope.sc_id); // HACK
+  };
 });
+

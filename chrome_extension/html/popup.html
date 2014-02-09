@@ -1,19 +1,37 @@
 <!doctype html>
-<html>
+<html ng-app="coolApp">
   <head>
     <title>Smart Playlist</title>
-    <style>
-      body {
-        min-width: 357px;
-        overflow-x: hidden;
-      }
-    </style>
+    <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body ng-controller="SmartPlaylistController">
+    <audio id="scAudio" controls ng-show="selectedTrack"></audio>
+    <input id="query" ng-model="query"></input>
+    <button ng-click="submitQuery()">Search</button>
+    <button ng-click="query = ''; searchResults = [];">Clear</button>
+
+    <h1>Playlist</h1>
+    <ul class="playlist">
+      <li ng-repeat="track in playlist">
+        {{track.title}}
+        [<a ng-click="selectTrack(track)" href="javascript:void(0);">Play</a> | 
+         <a ng-click="removeFromPlaylist(track)" href="javascript:void(0);">Remove from Playlist</a>] 
+      </li>
+    </ul>
+
+    <h1>Search Results</h1>
+    <ul class="searchResults">
+      <li ng-repeat="result in searchResults" ng-class="{selected: selectedTrack == result}">
+        {{result.title}} 
+        [<a ng-click="selectTrack(result)" href="javascript:void(0);">Play</a> | 
+         <a ng-click="addToPlaylist(result)" href="javascript:void(0);">Add to Playlist</a>]
+      </li>
+    </ul>
+
+    <script src="../../libraries/js/angular.min.js"></script>
     <script src="../../libraries/js/jquery.min.js"></script>
     <script src="../../provider_modules/soundcloud/js/sdk.js"></script>
     <script src="../js/popup.js"></script>
-  </head>
-  <body>
-    <audio id="myAudio" controls></audio>
   </body>
 </html>
 

@@ -2,19 +2,26 @@ var acceptableURLs = ["https://youtube.com", "http://youtube.com", "www.youtube.
             "https://soundcloud.com", "http://soundcloud.com", "www.soundcloud.com",
             "https://spotify.com", "http://spotify.com", "www.spotify.com"];
 
-function checkForValidUrl(tabId, changeInfo, tab) {
+function isValidURL(tabURL) {
   var isAcceptableURL = false;
   for(var i = 0; i < acceptableURLs.length; i++) {
-    if(tab.url.indexOf(acceptableURLs[i]) > -1) {
+    if(tabURL.indexOf(acceptableURLs[i]) > -1) {
       isAcceptableURL = true;
       break;
     }
   }
-  if(isAcceptableURL) {
-    chrome.browserAction.setBadgeText({"text": "Hey!"});
-  } else {
-    chrome.browserAction.setBadgeText({"text": ""});
-  }
+  return isAcceptableURL;
 };
 
-chrome.tabs.onUpdated.addListener(checkForValidUrl);
+function showStuffIfValidUrl(tab) {
+  chrome.browserAction.setBadgeText({"text": (isValidURL(tab.url) ? "HEY!" : "")})
+}
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+  chrome.tabs.get(activeInfo.tabId, function(tab) {
+    showStuffIfValidUrl(tab);
+  });
+});
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  showStuffIfValidUrl(tab);
+});
