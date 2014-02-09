@@ -1,7 +1,15 @@
 # Master .gitignore for the WHOOOOOLE repo
 
+# project vars are personal and shouldn't get pushed
+project_vars.sh
+
+# Don't commit the built extension
+built/*
+built/.*
+
 # node.js locally built nodes
 node_modules
 
 # PHPStorm .idea directories
 .idea
+
