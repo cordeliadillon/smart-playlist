@@ -12,15 +12,21 @@ Setup (OSX)
 6. In project root, do `npm install`
 7. Get your spotify developer key (see below).
 
+Project Vars
+---------------------------
+1. Make a file in the project root called "project_vars.sh"
+2. Put your Soundcloud client id in the appropriate place (see project_vars.sh.example)
+
 Installing Chrome Extension
 ---------------------------
-1. In Chrome, go to `chrome://extensions`.
-2. Make sure Developer Mode checkbox in top right is checked.
-3. Click "Load unpacked extension..."
-4. Navigate to and select `smart-playlist/chrome-extension`.
+1. Run build.sh
+2. In Chrome, go to `chrome://extensions`.
+3. Make sure Developer Mode checkbox in top right is checked.
+4. Click "Load unpacked extension..."
+5. Navigate to and select `smart-playlist/built/chrome-extension`.
 
 Spotify Developer Key
----------------------
+---------------------------
 1. Go to the Spotify [Application Keys](https://devaccount.spotify.com/my-account/keys/) page and get yours (register if necessary).
 2. Put the key in `provider_modules/spotify/`
  
