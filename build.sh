@@ -20,6 +20,13 @@ else
 fi
 
 #
+# Make sure we have a build dir
+#
+if [ ! -d "./built" ]; then
+   mkdir built
+fi
+
+#
 # Clean built dir and copy current contents there
 #
 echo "Cleaning and copying to built/ !"
